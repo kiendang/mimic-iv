@@ -67,7 +67,7 @@ WITH vs AS
           when MechVent = 0 then 1
           -- if there has been 8 hours since the last mech vent documentation,
           -- then we assume they were extubated earlier
-          when CHARTTIME > DATETIME_ADD(charttime_lag, INTERVAL 8 HOUR)
+          when CHARTTIME > DATETIME_ADD(charttime_lag, INTERVAL '8' HOUR)
             then 1
         else 0
         end as newvent

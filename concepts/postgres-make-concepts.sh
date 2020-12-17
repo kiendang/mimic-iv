@@ -88,9 +88,9 @@ echo 'Directory 7 of 9: sepsis'
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS sepsis3; CREATE ${STORAGE} sepsis3 AS "; cat sepsis/sepsis3.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 
 echo 'Directory 8 of 9: organfailure'
+{ echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS kdigo_uo; CREATE ${STORAGE} kdigo_uo AS "; cat organfailure/kdigo_uo.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS kdigo_creatinine; CREATE ${STORAGE} kdigo_creatinine AS "; cat organfailure/kdigo_creatinine.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS kdigo_stages; CREATE ${STORAGE} kdigo_stages AS "; cat organfailure/kdigo_stages.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
-{ echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS kdigo_uo; CREATE ${STORAGE} kdigo_uo AS "; cat organfailure/kdigo_uo.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS meld; CREATE ${STORAGE} meld AS "; cat organfailure/meld.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 
 echo 'Directory 9 of 9: comorbidity'

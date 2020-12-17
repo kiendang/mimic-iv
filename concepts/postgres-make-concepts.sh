@@ -77,7 +77,6 @@ echo 'Directory 5 of 9: firstday'
 
 echo 'Directory 6 of 9: score'
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS sofa; CREATE ${STORAGE} sofa AS "; cat score/sofa.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
-{ echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS sofa; CREATE ${STORAGE} sofa AS "; cat score/sofa.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS apsii; CREATE ${STORAGE} apsii AS "; cat score/apsii.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS lods; CREATE ${STORAGE} lods AS "; cat score/lods.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS oasis; CREATE ${STORAGE} oasis AS "; cat score/oasis.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}

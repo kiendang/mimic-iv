@@ -58,7 +58,7 @@ echo 'Directory 3 of 9: medication'
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS neuroblock; CREATE ${STORAGE} neuroblock AS "; cat medication/neuroblock.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 
 echo 'Directory 4 of 9: treatment'
-{ echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS invasive_line; CREATE ${STORAGE} crrt AS "; cat treatment/crrt.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
+{ echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS crrt; CREATE ${STORAGE} crrt AS "; cat treatment/crrt.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS invasive_line; CREATE ${STORAGE} invasive_line AS "; cat treatment/invasive_line.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS rrt; CREATE ${STORAGE} rrt AS "; cat treatment/rrt.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
 { echo "${PSQL_PREAMBLE}; DROP ${STORAGE} IF EXISTS ventilation; CREATE ${STORAGE} ventilation AS "; cat treatment/ventilation.sql; } | sed -r -e "${REGEX_DATETIME_DIFF}" | sed -r -e "${REGEX_SCHEMA}" | psql ${CONNSTR}
